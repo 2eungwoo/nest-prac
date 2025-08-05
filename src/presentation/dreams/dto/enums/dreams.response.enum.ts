@@ -4,6 +4,8 @@ import {ResponseCode} from "../../../../global/interfaces/response-code.interfac
 export enum DreamResponseEnum {
   DREAM_GET_SUCCESS = 'DREAM_GET_SUCCESS',
   DREAM_ALL_GET_SUCCESS = 'DREAM_ALL_GET_SUCCESS',
+  DREAM_SAVE_SUCCESS = 'DREAM_SAVE_SUCCESS',
+  DREAM_DELETE_SUCCESS = 'DREAM_DELETE_SUCCESS',
 }
 
 
@@ -18,4 +20,14 @@ export const DreamResponse: Record<DreamResponseEnum, ResponseCode> = {
     code: 'D202',
     message: '꿈 목록 조회 성공',
   },
+  [DreamResponseEnum.DREAM_SAVE_SUCCESS]: {
+    status: HttpStatus.OK,
+    code: 'D203',
+    message: '꿈 저장 성공',
+  },
+  [DreamResponseEnum.DREAM_DELETE_SUCCESS]: {
+    status: HttpStatus.NO_CONTENT,
+    code: 'D204',
+    message: '꿈 삭제 성공',
+  }
 };

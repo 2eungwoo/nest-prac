@@ -3,13 +3,13 @@ import {DreamRepository} from "../../../domain/dreams/repositories/dream.reposit
 import {DreamDeleteUseCase} from "../usecase/dream.delete.usecase";
 
 @Injectable()
-export class DreamDeleteService implements DreamDeleteUseCase{
+export class DreamDeleteService implements DreamDeleteUseCase {
   constructor(
       private readonly dreamRepository: DreamRepository
   ) {
   }
 
-  delelte(): Promise<void> {
-        throw new Error("Method not implemented.");
-    }
+  async delelte(id: string): Promise<void> {
+    await this.dreamRepository.delete(id);
+  }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Inject, Param } from '@nestjs/common';
+import {Controller, Get, Inject, Param, Post} from '@nestjs/common';
 import { ApiResponse } from '../../global/responses/api-response';
 import { DreamList } from './dto/response/dream.list';
 import { DreamDetail } from './dto/response/dream.detail';
