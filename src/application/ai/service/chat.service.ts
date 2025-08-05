@@ -13,12 +13,12 @@ export class ChatService implements ChatUsecase {
               private readonly dreamSaveUseCase: DreamSaveUseCase,) {
   }
 
-  async chat(request: ChatRequestDto): Promise<string> {
+  async chat(request: ChatRequestDto, userId: string): Promise<string> {
     const style = AIStyleStore.getStyle();
     const systemPrompt = AIStyleFactory.getSystemPrompt(style);
     const result = await this.openaiClient.createChatCompletion(systemPrompt, request.prompt);
 
-    await this.saveDreamResult(result, request.userId);
+    await this.saveDreamResult(result, userId);
 
     return result;
   }
