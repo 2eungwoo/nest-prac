@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UserRepository } from '../../../domain/users/repositories/user.repository';
-import { UserAlreadyExistsException } from '../../../domain/users/exceptions/user-already-exists-exception';
-import { LoginFailedException } from '../../../domain/users/exceptions/login-failed-exception';
+import { UserAlreadyExistsException } from '../exceptions/user-already-exists-exception';
+import { LoginFailedException } from '../exceptions/login-failed-exception';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()

@@ -1,5 +1,5 @@
 import {HttpStatus} from '@nestjs/common';
-import {UserErrorCode, UserErrorCodeEnum} from "../responses/user-error.code.enum";
+import {UserErrorCode, UserErrorCodeEnum} from "../dto/result/user-error.code.enum";
 import {CustomException} from "../../../global/exception/custom.exception";
 
 export class LoginFailedException extends CustomException {

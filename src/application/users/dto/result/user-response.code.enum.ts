@@ -1,4 +1,4 @@
-import {ResponseCode} from "../../../global/interfaces/response-code.interface";
+import {ResponseCode} from "../../../../global/interfaces/response-code.interface";
 
 
 export enum UserResponseCodeEnum {

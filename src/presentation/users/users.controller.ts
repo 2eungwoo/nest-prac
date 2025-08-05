@@ -1,13 +1,13 @@
 import {Body, Controller, Post} from '@nestjs/common';
-import {LoginUserRequest} from '../../application/users/dto/login-user.request';
-import {SignupUserRequest} from "../../application/users/dto/signup-user.request";
-import {LoginUserResult} from "../../application/users/result/login-user.result";
-import {SignupUserResult} from "../../application/users/result/signup-user.result";
+import {LoginUserRequest} from '../../application/users/dto/request/login-user.request';
+import {SignupUserRequest} from "../../application/users/dto/request/signup-user.request";
+import {LoginUserResult} from "../../application/users/dto/result/login-user.result";
+import {SignupUserResult} from "../../application/users/dto/result/signup-user.result";
 import {UserAuthService} from "../../application/users/service/user-auth.service";
 import {
   UserResponseCode,
   UserResponseCodeEnum
-} from "../../domain/users/responses/user-response.code.enum";
+} from "../../application/users/dto/result/user-response.code.enum";
 import {ApiResponse} from "../../global/responses/api-response";
 
 @Controller('users')

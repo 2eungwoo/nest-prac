@@ -2,10 +2,10 @@
 import {Injectable} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import {UserRepository} from "../../../domain/users/repositories/user.repository";
-import {SignupUserRequest} from "../dto/signup-user.request";
-import {LoginUserRequest} from "../dto/login-user.request";
-import {SignupUserResult} from "../result/signup-user.result";
-import {LoginUserResult} from "../result/login-user.result";
+import {SignupUserRequest} from "../dto/request/signup-user.request";
+import {LoginUserRequest} from "../dto/request/login-user.request";
+import {SignupUserResult} from "../dto/result/signup-user.result";
+import {LoginUserResult} from "../dto/result/login-user.result";
 import {UserAuthValidator} from "../validation/user-auth.validator";
 
 
