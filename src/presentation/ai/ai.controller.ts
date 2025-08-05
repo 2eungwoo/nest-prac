@@ -1,8 +1,8 @@
 import {Body, Controller, Inject, Post} from "@nestjs/common";
-import type {OpenAiChatUseCase} from "../../application/ai/usecase/openai-chat.usecase";
+import type {ChatUsecase} from "../../application/ai/usecase/chat.usecase";
 import type {
-  ChooseStyleUseCase
-} from "../../application/ai/usecase/choose-style.usecase";
+  ChooseStyleUsecase
+} from "../../application/ai/usecase/choose.style.usecase";
 import {ChooseStyleRequest} from "./dto/choose.style.request";
 import {ApiResponse} from "../../global/responses/api-response";
 import {AIResponseCode, AIResponseCodeEnum} from "../../infrastructure/external/ai/responses/ai-response-code.enum";
@@ -11,10 +11,10 @@ import {AIChatRequest} from "./dto/ai-chat.request";
 @Controller('ai')
 export class AiController {
   constructor(
-      @Inject('OpenAiChatUseCase')
-      private readonly aiChatUseCase: OpenAiChatUseCase,
-      @Inject('ChooseStyleUseCase')
-      private readonly chooseStyleUseCase: ChooseStyleUseCase,) {
+      @Inject('ChatUsecase')
+      private readonly aiChatUseCase: ChatUsecase,
+      @Inject('ChooseStyleUsecase')
+      private readonly chooseStyleUseCase: ChooseStyleUsecase,) {
   }
 
   @Post('style')

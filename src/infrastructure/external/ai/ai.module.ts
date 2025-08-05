@@ -2,10 +2,10 @@ import {Module} from '@nestjs/common';
 import {ConfigModule} from '@nestjs/config';
 
 import {AiController} from '../../../presentation/ai/ai.controller';
-import {OpenAiChatService} from "../../../application/ai/service/openai-chat.service";
+import {ChatService} from "../../../application/ai/service/chat.service";
 import {
-  OpenAIChooseStyleService
-} from "../../../application/ai/service/openai-choose.style.service";
+  ChooseStyleService
+} from "../../../application/ai/service/choose.style.service";
 import {OpenaiClient} from "./utils/openai.client";
 import {OpenaiConfig} from "../../../config/openai.config";
 
@@ -14,17 +14,17 @@ import {OpenaiConfig} from "../../../config/openai.config";
   imports: [ConfigModule],
   controllers: [AiController],
   providers: [
-    OpenAiChatService,
-    OpenAIChooseStyleService,
+    ChatService,
+    ChooseStyleService,
     OpenaiClient,
     OpenaiConfig,
     {
-      provide: 'OpenAiChatUseCase',
-      useExisting: OpenAiChatService,
+      provide: 'ChatUsecase',
+      useExisting: ChatService,
     },
     {
-      provide: 'ChooseStyleUseCase',
-      useExisting: OpenAIChooseStyleService,
+      provide: 'ChooseStyleUsecase',
+      useExisting: ChooseStyleService,
     },
   ],
 })
