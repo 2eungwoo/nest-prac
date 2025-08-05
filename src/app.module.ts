@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import Joi from 'joi';
+import {UsersModule} from "./presentation/users/users.module";
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import Joi from 'joi';
         logging: true,
       }),
     }),
+    UsersModule
   ],
   controllers: [],
   providers: [],
