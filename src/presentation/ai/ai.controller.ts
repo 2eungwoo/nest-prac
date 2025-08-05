@@ -4,7 +4,7 @@ import type {
   ChooseStyleUseCase
 } from "../../application/ai/usecase/choose-style.usecase";
 import {ChooseStyleRequest} from "./dto/choose.style.request";
-import {ApiResponse} from "../../common/responses/responess/api-response";
+import {ApiResponse} from "../../common/responses/api-response";
 import {AIResponseCode, AIResponseCodeEnum} from "../../infrastructure/external/ai/responses/ai-response-code.enum";
 import {AIChatRequest} from "./dto/ai-chat.request";
 

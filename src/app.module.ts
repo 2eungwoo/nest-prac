@@ -6,7 +6,7 @@ import { PresentationModule } from './presentation/presentation.module';
 import databaseConfig, {databaseValidationSchema} from "./config/database.config";
 import {
   GlobalExceptionFilter
-} from "./common/responses/responess/exception/global-exception.filter";
+} from "./common/responses/exception/global-exception.filter";
 
 @Module({
   imports: [
