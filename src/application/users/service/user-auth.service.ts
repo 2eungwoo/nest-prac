@@ -7,6 +7,10 @@ import {LoginUserRequest} from "../dto/login-user.request";
 import {SignupUserResult} from "../result/signup-user.result";
 import {LoginUserResult} from "../result/login-user.result";
 import {BaseCode, BaseResponseCode} from "../../../common/responess/base-response-code.enum";
+import {
+  UserAlreadyExistsException
+} from "../../../domain/users/exceptions/user-already-exists-exception";
+import {LoginFailedException} from "../../../domain/users/exceptions/login-failed-exception";
 
 
 @Injectable()
@@ -16,10 +20,7 @@ export class UserAuthService {
   async signup(req: SignupUserRequest): Promise<SignupUserResult> {
     const exists = await this.userRepository.findByEmail(req.email);
     if (exists) {
-      throw new CustomException(
-          { code: 'USER_EXISTS', message: '이미 존재하는 이메일입니다.' },
-          HttpStatus.CONFLICT,
-      );
+      throw new UserAlreadyExistsException();
     }
 
     const hashed = await bcrypt.hash(req.password, 10);
@@ -35,12 +36,12 @@ export class UserAuthService {
   async login(req: LoginUserRequest): Promise<LoginUserResult> {
     const user = await this.userRepository.findByEmail(req.email);
     if (!user) {
-      throw new CustomException(BaseResponseCode[BaseCode.UNAUTHORIZED], HttpStatus.UNAUTHORIZED);
+      throw new LoginFailedException();
     }
 
     const match = await bcrypt.compare(req.password, user.password);
     if (!match) {
-      throw new CustomException(BaseResponseCode[BaseCode.UNAUTHORIZED], HttpStatus.UNAUTHORIZED);
+      throw new LoginFailedException();
     }
 
     return new LoginUserResult(user.id, user.email, user.name);

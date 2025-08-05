@@ -5,7 +5,10 @@ import {LoginUserResult} from "../../application/users/result/login-user.result"
 import {SignupUserResult} from "../../application/users/result/signup-user.result";
 import {UserAuthService} from "../../application/users/service/user-auth.service";
 import {ApiResponse} from "../../common/responess/api-response";
-import {BaseCode, BaseResponseCode} from "../../common/responess/base-response-code.enum";
+import {
+  UserResponseCode,
+  UserResponseCodeEnum
+} from "../../domain/users/responses/user-response.code.enum";
 
 @Controller('users')
 export class UsersController {
@@ -15,12 +18,12 @@ export class UsersController {
   @Post('signup')
   async signup(@Body() request: SignupUserRequest): Promise<ApiResponse<SignupUserResult>> {
     const result = await this.userAuthService.signup(request);
-    return ApiResponse.success(BaseResponseCode[BaseCode.OK], result);
+    return ApiResponse.success(UserResponseCode[UserResponseCodeEnum.SIGNUP_SUCCESS], result);
   }
 
   @Post('login')
   async login(@Body() request: LoginUserRequest): Promise<ApiResponse<LoginUserResult>> {
     const result = await this.userAuthService.login(request);
-    return ApiResponse.success(BaseResponseCode[BaseCode.OK], result);
+    return ApiResponse.success(UserResponseCode[UserResponseCodeEnum.LOGIN_SUCCESS], result);
   }
 }
