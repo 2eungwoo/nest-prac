@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { OpenaiConfig } from './openai.config';
+import { OpenaiConfig } from '../../../../config/openai.config';
 
 @Injectable()
 export class OpenaiClient {

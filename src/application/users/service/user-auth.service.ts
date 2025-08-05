@@ -1,23 +1,19 @@
 // src/application/users/services/user-auth.service.ts
-import { Injectable, HttpStatus } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import {UserRepository} from "../../../domain/users/repositories/user.repository";
 import {SignupUserRequest} from "../dto/signup-user.request";
 import {LoginUserRequest} from "../dto/login-user.request";
 import {SignupUserResult} from "../result/signup-user.result";
 import {LoginUserResult} from "../result/login-user.result";
-import {BaseCode, BaseResponseCode} from "../../../common/responess/enum/base-response-code.enum";
-import {
-  UserAlreadyExistsException
-} from "../../../domain/users/exceptions/user-already-exists-exception";
-import {LoginFailedException} from "../../../domain/users/exceptions/login-failed-exception";
 import {UserAuthValidator} from "../validation/user-auth.validator";
 
 
 @Injectable()
 export class UserAuthService {
   constructor(private readonly userRepository: UserRepository,
-              private readonly validator: UserAuthValidator,) {}
+              private readonly validator: UserAuthValidator,) {
+  }
 
   async signup(req: SignupUserRequest): Promise<SignupUserResult> {
 

@@ -1,4 +1,5 @@
-import {ChooseStyleRequest} from "../../../presentation/dto/choose.style.request";
+import {ChooseStyleRequest} from "../../../presentation/ai/dto/choose.style.request";
+
 
 export interface ChooseStyleUseCase {
   chooseStyle(request: ChooseStyleRequest): Promise<string>;

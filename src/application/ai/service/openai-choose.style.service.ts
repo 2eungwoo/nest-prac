@@ -1,8 +1,8 @@
-import {ChooseStyleUseCase} from "../usecase/choose-style.usecase.interface";
+import {ChooseStyleUseCase} from "../usecase/choose-style.usecase";
 import {Injectable} from "@nestjs/common";
-import {ChooseStyleRequest} from "../../../presentation/dto/choose.style.request";
-import {AIStyleType} from "../../../domain/ai/ai-style.enum";
-import {AIStyleStore} from "../../../domain/ai/ai-style-store";
+import {AIStyleType} from "../../../infrastructure/external/ai/utils/ai-style.enum";
+import {AIStyleStore} from "../../../infrastructure/external/ai/utils/ai-style-store";
+import {ChooseStyleRequest} from "../../../presentation/ai/dto/choose.style.request";
 
 @Injectable()
 export class OpenAIChooseStyleService implements ChooseStyleUseCase {

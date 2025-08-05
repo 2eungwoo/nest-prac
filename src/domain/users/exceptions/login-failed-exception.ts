@@ -1,6 +1,6 @@
-import {CustomException} from "../../../common/responess/exception/custom.exception";
 import {HttpStatus} from '@nestjs/common';
 import {UserErrorCode, UserErrorCodeEnum} from "../responses/user-error.code.enum";
+import {CustomException} from "../../../common/responses/responess/exception/custom.exception";
 
 export class LoginFailedException extends CustomException {
   constructor() {

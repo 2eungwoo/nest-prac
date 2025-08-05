@@ -1,7 +1,6 @@
 import { HttpStatus } from '@nestjs/common';
-import {BaseCode, BaseResponseCode} from "../../../common/responess/enum/base-response-code.enum";
-import {CustomException} from "../../../common/responess/exception/custom.exception";
 import {UserErrorCode, UserErrorCodeEnum} from "../responses/user-error.code.enum";
+import {CustomException} from "../../../common/responses/responess/exception/custom.exception";
 
 export class UserAlreadyExistsException extends CustomException {
   constructor() {

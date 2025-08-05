@@ -1,9 +1,9 @@
 import {Injectable} from '@nestjs/common';
-import {OpenaiClient} from '../../../infrastructure/external/ai/openai.client';
-import {OpenAiChatUseCase} from "../usecase/openai-chat.usecase.interface";
+import {OpenaiClient} from '../../../infrastructure/external/ai/utils/openai.client';
+import {OpenAiChatUseCase} from "../usecase/openai-chat.usecase";
 import {ChatRequestDto} from "../dto/chat-request.dto";
-import {AIStyleStore} from "../../../domain/ai/ai-style-store";
-import {AIStyleFactory} from "../../../domain/ai/utils/ai-style.factory";
+import {AIStyleStore} from "../../../infrastructure/external/ai/utils/ai-style-store";
+import {AIStyleFactory} from "../../../infrastructure/external/ai/utils/ai-style.factory";
 
 @Injectable()
 export class OpenAiChatService implements OpenAiChatUseCase {

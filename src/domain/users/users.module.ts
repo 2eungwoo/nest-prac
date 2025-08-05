@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersController } from './users.controller';
-import { User } from '../../domain/users/entities/user.entity';
-import { UserRepository } from '../../domain/users/repositories/user.repository';
+import { UsersController } from '../../presentation/users/users.controller';
+import { User } from './entities/user.entity';
+import { UserRepository } from './repositories/user.repository';
 import {UserAuthService} from "../../application/users/service/user-auth.service";
 import {UserAuthValidator} from "../../application/users/validation/user-auth.validator";
 

@@ -4,11 +4,11 @@ import {SignupUserRequest} from "../../application/users/dto/signup-user.request
 import {LoginUserResult} from "../../application/users/result/login-user.result";
 import {SignupUserResult} from "../../application/users/result/signup-user.result";
 import {UserAuthService} from "../../application/users/service/user-auth.service";
-import {ApiResponse} from "../../common/responess/api-response";
 import {
   UserResponseCode,
   UserResponseCodeEnum
 } from "../../domain/users/responses/user-response.code.enum";
+import {ApiResponse} from "../../common/responses/responess/api-response";
 
 @Controller('users')
 export class UsersController {

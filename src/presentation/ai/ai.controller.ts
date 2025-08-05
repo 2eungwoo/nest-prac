@@ -1,10 +1,12 @@
 import {Body, Controller, Inject, Post} from "@nestjs/common";
-import type {OpenAiChatUseCase} from "../../application/ai/usecase/openai-chat.usecase.interface";
-import {ApiResponse} from "../../common/responess/api-response";
-import {AIChatRequest} from "../dto/ai-chat.request";
-import {AIResponseCode, AIResponseCodeEnum} from "../../domain/ai/ai-response-code.enum";
-import {ChooseStyleRequest} from "../dto/choose.style.request";
-import type {ChooseStyleUseCase} from "../../application/ai/usecase/choose-style.usecase.interface";
+import type {OpenAiChatUseCase} from "../../application/ai/usecase/openai-chat.usecase";
+import type {
+  ChooseStyleUseCase
+} from "../../application/ai/usecase/choose-style.usecase";
+import {ChooseStyleRequest} from "./dto/choose.style.request";
+import {ApiResponse} from "../../common/responses/responess/api-response";
+import {AIResponseCode, AIResponseCodeEnum} from "../../infrastructure/external/ai/responses/ai-response-code.enum";
+import {AIChatRequest} from "./dto/ai-chat.request";
 
 @Controller('ai')
 export class AiController {

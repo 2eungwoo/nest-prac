@@ -1,5 +1,5 @@
 import {IsEnum} from 'class-validator';
-import {AIStyle} from "../../domain/ai/ai-style.enum";
+import {AIStyle} from "../../../infrastructure/external/ai/utils/ai-style.enum";
 
 export class ChooseStyleRequest {
   @IsEnum(AIStyle)

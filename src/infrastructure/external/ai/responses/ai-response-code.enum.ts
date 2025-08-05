@@ -1,4 +1,4 @@
-import {ResponseCode} from "../../common/responess/response-code.interface";
+import {ResponseCode} from "../../../../common/interfaces/response-code.interface";
 
 export enum AIResponseCodeEnum {
   AI_CHAT_SUCCESS = 'AI_200',
