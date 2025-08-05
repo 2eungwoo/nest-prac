@@ -11,17 +11,17 @@ import {
   UserAlreadyExistsException
 } from "../../../domain/users/exceptions/user-already-exists-exception";
 import {LoginFailedException} from "../../../domain/users/exceptions/login-failed-exception";
+import {UserAuthValidator} from "../validation/user-auth.validator";
 
 
 @Injectable()
 export class UserAuthService {
-  constructor(private readonly userRepository: UserRepository) {}
+  constructor(private readonly userRepository: UserRepository,
+              private readonly validator: UserAuthValidator,) {}
 
   async signup(req: SignupUserRequest): Promise<SignupUserResult> {
-    const exists = await this.userRepository.findByEmail(req.email);
-    if (exists) {
-      throw new UserAlreadyExistsException();
-    }
+
+    await this.validator.validateEmailNotExists(req.email);
 
     const hashed = await bcrypt.hash(req.password, 10);
     const saved = await this.userRepository.save({
@@ -34,16 +34,8 @@ export class UserAuthService {
   }
 
   async login(req: LoginUserRequest): Promise<LoginUserResult> {
-    const user = await this.userRepository.findByEmail(req.email);
-    if (!user) {
-      throw new LoginFailedException();
-    }
 
-    const match = await bcrypt.compare(req.password, user.password);
-    if (!match) {
-      throw new LoginFailedException();
-    }
-
+    const user = await this.validator.validateCredentials(req.email, req.password);
     return new LoginUserResult(user.id, user.email, user.name);
   }
 }
