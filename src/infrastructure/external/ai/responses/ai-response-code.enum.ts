@@ -7,11 +7,13 @@ export enum AIResponseCodeEnum {
 
 export const AIResponseCode: Record<AIResponseCodeEnum, ResponseCode> = {
   [AIResponseCodeEnum.AI_CHAT_SUCCESS]: {
+    status: 200,
     code: AIResponseCodeEnum.AI_CHAT_SUCCESS,
     message: 'AI 응답이 성공했습니다.',
   },
 
   [AIResponseCodeEnum.AI_CHOOSE_STYLE_SUCCESS]: {
+    status:200,
     code: AIResponseCodeEnum.AI_CHOOSE_STYLE_SUCCESS,
     message: 'AI 유형 선택이 성공했습니다.',
   },

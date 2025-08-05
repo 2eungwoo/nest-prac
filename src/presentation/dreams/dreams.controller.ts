@@ -1,23 +1,20 @@
 import { Controller, Get, Inject, Param } from '@nestjs/common';
 import { ApiResponse } from '../../global/responses/api-response';
-import { DreamReadUseCase } from '../../application/dream/usecase/dream-read.usecase';
-import { DreamSaveUseCase } from '../../application/dream/usecase/dream-save.usecase';
-import { DreamDeleteUseCase } from '../../application/dream/usecase/dream-delete.usecase';
 import { DreamList } from './dto/response/dream.list';
 import { DreamDetail } from './dto/response/dream.detail';
-import {
-  DreamResponseCode,
-  DreamResponseCodeEnum,
-} from '../../infrastructure/external/ai/responses/ai-response-code.enum';
+import type {DreamDeleteUseCase} from "../../application/dreams/usecase/dream.delete.usecase";
+import type {DreamReadUseCase} from "../../application/dreams/usecase/dream.read.usercase";
+import type {DreamSaveUseCase} from "../../application/dreams/usecase/dream.save.usecase";
+import {DreamResponse, DreamResponseEnum} from "./dto/enums/dreams.response.enum";
 
 @Controller('dreams')
 export class DreamsController {
   constructor(
-      @Inject()
+      @Inject('DreamReadUseCase')
       private readonly dreamReadUseCase: DreamReadUseCase,
-      @Inject()
+      @Inject('DreamSaveUseCase')
       private readonly dreamSaveUseCase: DreamSaveUseCase,
-      @Inject()
+      @Inject('DreamDeleteUseCase')
       private readonly dreamDeleteUseCase: DreamDeleteUseCase,
   ) {}
 
@@ -27,7 +24,7 @@ export class DreamsController {
     const response = dreams.map(DreamList.of);
 
     return ApiResponse.success(
-        DreamResponseCode[DreamResponseCodeEnum.DREAM_GET_SUCCESS],
+        DreamResponse[DreamResponseEnum.DREAM_ALL_GET_SUCCESS],
         response,
     );
   }
@@ -38,7 +35,7 @@ export class DreamsController {
     const response = DreamDetail.of(dream);
 
     return ApiResponse.success(
-        DreamResponseCode[DreamResponseCodeEnum.DREAM_GET_SUCCESS],
+        DreamResponse[DreamResponseEnum.DREAM_GET_SUCCESS],
         response,
     );
   }

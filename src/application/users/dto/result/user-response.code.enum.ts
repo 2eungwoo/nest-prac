@@ -8,10 +8,12 @@ export enum UserResponseCodeEnum {
 
 export const UserResponseCode: Record<UserResponseCodeEnum, ResponseCode> = {
   [UserResponseCodeEnum.SIGNUP_SUCCESS]: {
+    status:201,
     code: UserResponseCodeEnum.SIGNUP_SUCCESS,
     message: '회원가입이 완료되었습니다.',
   },
   [UserResponseCodeEnum.LOGIN_SUCCESS]: {
+    status:200,
     code: UserResponseCodeEnum.LOGIN_SUCCESS,
     message: '로그인에 성공했습니다.',
   },

@@ -1,6 +1,6 @@
 export class LoginUserResult {
   constructor(
-      public readonly id: number,
+      public readonly id: string,
       public readonly email: string,
       public readonly name: string,
   ) {}
