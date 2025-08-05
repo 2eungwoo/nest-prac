@@ -1,8 +1,9 @@
-import {Dream} from "../../../domain/dreams/entities/dream.entity";
+import {DreamListResult} from "../dto/dream.list.result";
+import {DreamDetailResult} from "../dto/dream.detail.result";
 
 export interface DreamReadUseCase {
 
-  getDreams(): Promise<Dream[]>;
+  getDreams(): Promise<DreamListResult[]>;
 
-  getDreamById(id: string): Promise<Dream>;
+  getDreamById(id: string): Promise<DreamDetailResult>;
 }
