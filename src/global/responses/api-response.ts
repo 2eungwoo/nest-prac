@@ -1,4 +1,5 @@
-import { ResponseCode } from './response-code.interface';
+import {ResponseCode} from "../interfaces/response-code.interface";
+
 
 export class ApiResponse<T> {
   readonly success: boolean;

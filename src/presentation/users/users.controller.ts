@@ -8,7 +8,7 @@ import {
   UserResponseCode,
   UserResponseCodeEnum
 } from "../../domain/users/responses/user-response.code.enum";
-import {ApiResponse} from "../../common/responses/api-response";
+import {ApiResponse} from "../../global/responses/api-response";
 
 @Controller('users')
 export class UsersController {
