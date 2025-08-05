@@ -1,3 +1,5 @@
+import {AIResult} from "../../ai/dto/ai.result";
+
 export interface DreamSaveUseCase {
-  save(): Promise<void>;
+  save(aiResult: AIResult): Promise<void>;
 }

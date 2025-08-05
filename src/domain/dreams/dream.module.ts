@@ -26,9 +26,8 @@ import {DreamReadService} from "../../application/dreams/service/dream.read.serv
     {
       provide: 'DreamReadUseCase',
       useExisting: DreamReadService,
-    }
-
-  ]
+    },
+  ],exports: ['DreamSaveUseCase'],
 
 })
 export class DreamModule {

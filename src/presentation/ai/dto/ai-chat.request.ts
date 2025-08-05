@@ -4,4 +4,8 @@ export class AIChatRequest {
   @IsString()
   @IsNotEmpty()
   prompt: string;
+
+  @IsString()
+  @IsNotEmpty()
+  userId: string;
 }

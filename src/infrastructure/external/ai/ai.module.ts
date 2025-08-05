@@ -8,10 +8,11 @@ import {
 } from "../../../application/ai/service/choose.style.service";
 import {OpenaiClient} from "./utils/openai.client";
 import {OpenaiConfig} from "../../../config/openai.config";
+import {DreamModule} from "../../../domain/dreams/dream.module";
 
 
 @Module({
-  imports: [ConfigModule],
+  imports: [ConfigModule,DreamModule],
   controllers: [AiController],
   providers: [
     ChatService,
