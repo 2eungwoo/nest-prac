@@ -1,3 +1,5 @@
+import {ChatRequestDto} from "../dto/chat-request.dto";
+
 export interface OpenAiChatUseCase {
-  chat(prompt: string): Promise<string>;
+  chat(request: ChatRequestDto): Promise<string>;
 }

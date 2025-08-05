@@ -1,12 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { OpenAiChatUseCase } from '../usecase/openai-chat.usecase.interface';
-import { OpenaiClient } from '../../../infrastructure/external/ai/openai.client';
+import {Injectable} from '@nestjs/common';
+import {OpenaiClient} from '../../../infrastructure/external/ai/openai.client';
+import {OpenAiChatUseCase} from "../usecase/openai-chat.usecase.interface";
+import {ChatRequestDto} from "../dto/chat-request.dto";
 
 @Injectable()
-export class OpenAiChatService implements OpenAiChatUseCase {
-  constructor(private readonly openaiClient: OpenaiClient) {}
+export class OpenAiChatService implements OpenAiChatUseCase{
+  constructor(private readonly openaiClient: OpenaiClient) {
+  }
 
-  async chat(prompt: string): Promise<string> {
-    return this.openaiClient.createChatCompletion(prompt);
+  async chat(request: ChatRequestDto): Promise<string> {
+    return this.openaiClient.createChatCompletion(request.prompt);
   }
 }

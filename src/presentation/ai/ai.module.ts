@@ -13,6 +13,10 @@ import {OpenaiClient} from "../../infrastructure/external/ai/openai.client";
     OpenAiChatService,
     OpenaiClient,
     OpenaiConfig,
+    {
+      provide: 'OpenAiChatUseCase',
+      useExisting: OpenAiChatService,
+    },
   ],
 })
 export class AiModule {}
