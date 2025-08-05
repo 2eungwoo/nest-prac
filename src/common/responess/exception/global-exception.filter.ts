@@ -18,6 +18,8 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     let code = BaseResponseCode[BaseCode.INTERNAL_ERROR];
     let errors = undefined;
 
+    console.error('[Exception]', exception);
+
     if (exception instanceof HttpException) {
       status = exception.getStatus();
       const res = exception.getResponse();
