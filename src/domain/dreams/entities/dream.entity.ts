@@ -11,6 +11,9 @@ export class Dream {
   @Column({ name: 'dream_description', type: 'text'})
   description: string;
 
+  @Column({ name: 'ai_style', type: 'text'})
+  style: string;
+
   @Column({ name: 'dream_interpretation', type: 'text'})
   interpretation: string;
 
