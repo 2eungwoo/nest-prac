@@ -1,12 +1,10 @@
-import { Module } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { APP_FILTER } from '@nestjs/core';
-import { PresentationModule } from './presentation/presentation.module';
+import {Module} from '@nestjs/common';
+import {ConfigModule, ConfigService} from '@nestjs/config';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {APP_FILTER} from '@nestjs/core';
+import {PresentationModule} from './presentation/presentation.module';
 import databaseConfig, {databaseValidationSchema} from "./config/database.config";
-import {
-  GlobalExceptionFilter
-} from "./global/filters/global-exception.filter";
+import {GlobalExceptionFilter} from "./global/filters/global-exception.filter";
 
 @Module({
   imports: [
@@ -22,7 +20,7 @@ import {
         autoLoadEntities: true,
       }),
     }),
-    PresentationModule,
+    PresentationModule
   ],
   providers: [
     {
@@ -31,4 +29,5 @@ import {
     },
   ],
 })
-export class AppModule {}
+export class AppModule {
+}
