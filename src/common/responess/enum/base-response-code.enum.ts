@@ -1,4 +1,4 @@
-import { ResponseCode } from './response-code.interface';
+import { ResponseCode } from '../response-code.interface';
 
 export enum BaseCode {
   OK = 'COMMON_200',

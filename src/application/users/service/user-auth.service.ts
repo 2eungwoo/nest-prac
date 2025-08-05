@@ -6,7 +6,7 @@ import {SignupUserRequest} from "../dto/signup-user.request";
 import {LoginUserRequest} from "../dto/login-user.request";
 import {SignupUserResult} from "../result/signup-user.result";
 import {LoginUserResult} from "../result/login-user.result";
-import {BaseCode, BaseResponseCode} from "../../../common/responess/base-response-code.enum";
+import {BaseCode, BaseResponseCode} from "../../../common/responess/enum/base-response-code.enum";
 import {
   UserAlreadyExistsException
 } from "../../../domain/users/exceptions/user-already-exists-exception";

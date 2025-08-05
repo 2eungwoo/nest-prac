@@ -6,8 +6,8 @@ import {
   HttpStatus,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { ErrorResponse } from './error-response';
-import { BaseResponseCode, BaseCode } from './base-response-code.enum';
+import { ErrorResponse } from '../error-response';
+import { BaseResponseCode, BaseCode } from '../enum/base-response-code.enum';
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
