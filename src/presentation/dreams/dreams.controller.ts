@@ -1,4 +1,4 @@
-import {Controller, Get, Inject, Param, Post} from '@nestjs/common';
+import {Controller, Delete, Get, Inject, Param, Post} from '@nestjs/common';
 import { ApiResponse } from '../../global/responses/api-response';
 import { DreamList } from './dto/response/dream.list';
 import { DreamDetail } from './dto/response/dream.detail';
@@ -38,5 +38,14 @@ export class DreamsController {
         DreamResponse[DreamResponseEnum.DREAM_GET_SUCCESS],
         response,
     );
+  }
+
+  @Delete(':dreamId')
+  async deleteDreamById(@Param('dreamId') dreamId: string) {
+    const dream = await this.dreamDeleteUseCase.delete(dreamId);
+    const response = DreamDetail.of(dream);
+
+    return ApiResponse.success(
+        DreamResponse[DreamResponseEnum.DREAM_DELETE_SUCCESS], response.id);
   }
 }

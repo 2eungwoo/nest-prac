@@ -1,3 +1,3 @@
 export interface DreamDeleteUseCase {
-  delelte(id: string): Promise<void> ;
+  delete(id: string): Promise<void> ;
 }

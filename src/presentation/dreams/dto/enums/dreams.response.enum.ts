@@ -26,7 +26,7 @@ export const DreamResponse: Record<DreamResponseEnum, ResponseCode> = {
     message: '꿈 저장 성공',
   },
   [DreamResponseEnum.DREAM_DELETE_SUCCESS]: {
-    status: HttpStatus.NO_CONTENT,
+    status: HttpStatus.OK,
     code: 'D204',
     message: '꿈 삭제 성공',
   }

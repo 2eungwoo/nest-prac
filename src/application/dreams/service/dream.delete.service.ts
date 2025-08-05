@@ -9,7 +9,7 @@ export class DreamDeleteService implements DreamDeleteUseCase {
   ) {
   }
 
-  async delelte(id: string): Promise<void> {
+  async delete(id: string): Promise<void> {
     await this.dreamRepository.delete(id);
   }
 }
