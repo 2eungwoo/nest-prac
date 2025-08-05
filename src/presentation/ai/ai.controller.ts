@@ -3,13 +3,25 @@ import type {OpenAiChatUseCase} from "../../application/ai/usecase/openai-chat.u
 import {ApiResponse} from "../../common/responess/api-response";
 import {AIChatRequest} from "../dto/ai-chat.request";
 import {AIResponseCode, AIResponseCodeEnum} from "../../domain/ai/ai-response-code.enum";
+import {ChooseStyleRequest} from "../dto/choose.style.request";
+import type {ChooseStyleUseCase} from "../../application/ai/usecase/choose-style.usecase.interface";
 
 @Controller('ai')
 export class AiController {
   constructor(
       @Inject('OpenAiChatUseCase')
-      private readonly aiChatUseCase: OpenAiChatUseCase)
-  {}
+      private readonly aiChatUseCase: OpenAiChatUseCase,
+      @Inject('ChooseStyleUseCase')
+      private readonly chooseStyleUseCase: ChooseStyleUseCase,) {
+  }
+
+  @Post('style')
+  async setStyle(@Body() request: ChooseStyleRequest) {
+    const result = await this.chooseStyleUseCase.chooseStyle(request);
+    return ApiResponse.success(AIResponseCode[AIResponseCodeEnum.AI_CHOOSE_STYLE_SUCCESS], {
+      response: result,
+    });
+  }
 
   @Post('chat')
   async chat(@Body() request: AIChatRequest) {
